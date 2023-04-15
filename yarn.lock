@@ -576,6 +576,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^5.58.0"
     "@typescript-eslint/parser": "npm:^5.58.0"
     cors: "npm:^2.8.5"
+    csv-parser: "npm:^3.0.0"
     eslint: "npm:^8.38.0"
     express: "npm:^4.18.2"
     ts-node-dev: "npm:^2.0.0"
@@ -877,6 +878,17 @@ __metadata:
     shebang-command: "npm:^2.0.0"
     which: "npm:^2.0.1"
   checksum: 37ec685f91f04d4719892f305fa6f632aae256df7f2f3f98d5c36f2197651ad7b77851aaa2d397d19a9555f0fb89fa18f9bb3ff4b440535cc0fb4fe0a72004b9
+  languageName: node
+  linkType: hard
+
+"csv-parser@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "csv-parser@npm:3.0.0"
+  dependencies:
+    minimist: "npm:^1.2.0"
+  bin:
+    csv-parser: bin/csv-parser
+  checksum: f5016661697517cd28ff36bf156cf00fa62b213f046b85932003d80079a6bcc6d8f97f069e2581223643bb5f7b8ade4567469d0840abb975a92088b96b89ddbb
   languageName: node
   linkType: hard
 
@@ -1884,7 +1896,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.2.6":
+"minimist@npm:^1.2.0, minimist@npm:^1.2.6":
   version: 1.2.8
   resolution: "minimist@npm:1.2.8"
   checksum: 8598f846f2b7546b22b01ce486df27da216a302367afe17f2a032da12fcb8d33bfbf2c523051230864abf0b806748bd60d4cd0863fae35fe104da1ff6194a185

@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
 import fs from "fs";
-import csv from "csv-parser";
-import { pipeline } from "stream";
-import { CSVPoint, Datapoint } from "../utils/types";
+import { Datapoint } from "../utils/types";
+import { Stock } from "../models/Stock";
 
 export const getSymbolData = async (req: Request, res: Response) => {
 	try {
@@ -47,6 +46,29 @@ export const searchSymbol = async (req: Request, res: Response) => {
 		return res.status(200).send("FAILED");
 		res.status(200).send("SUCCESS");
 	} catch (error: any) {
-		res.status(500).send(error.message);
+		console.error(error);
+		return res.status(500).send(error.message);
+	}
+};
+
+export const addToPortfolio = async (req: Request, res: Response) => {
+	try {
+		const { symbol } = req.body;
+		const stock = new Stock({ symbol, company: symbol });
+		await stock.save();
+		return res.status(200).send("SUCCESS");
+	} catch (error: any) {
+		if (error.code === 11000) return res.status(400).send("Already exists in your portfolio");
+		console.error(error);
+		return res.status(500).send(error.message);
+	}
+};
+
+export const getPortfolio = async (req: Request, res: Response) => {
+	try {
+		return res.status(200).send(await Stock.find({}));
+	} catch (error: any) {
+		console.error(error);
+		return res.status(500).send(error.message);
 	}
 };
