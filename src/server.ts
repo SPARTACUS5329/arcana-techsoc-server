@@ -2,11 +2,14 @@ import express, { Application } from "express";
 import { router } from "./routes/router";
 import cors from "cors";
 import bodyParser from "body-parser";
+import { connectToMongoDB } from "./config/_mongodb";
 
 const app: Application = express();
 const port = 8000;
 
 const main = async () => {
+	await connectToMongoDB();
+
 	app.use(
 		cors({
 			credentials: true,
