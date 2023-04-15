@@ -3,6 +3,10 @@ import fs from "fs";
 import { Datapoint } from "../utils/types";
 import { Stock } from "../models/Stock";
 
+export const foo = async (req: Request, res: Response) => {
+	res.status(200).send("Working dumbass");
+};
+
 export const getSymbolData = async (req: Request, res: Response) => {
 	try {
 		const { symbol } = req.query;
