@@ -1,6 +1,7 @@
 import express, { Router } from "express";
 import {
 	addToPortfolio,
+	foo,
 	getPortfolio,
 	getSymbolData,
 	searchSymbol,
@@ -8,6 +9,7 @@ import {
 
 const router: Router = express.Router();
 
+router.get("/", foo);
 router.get("/symbol-data", getSymbolData);
 router.post("/search", searchSymbol);
 router.get("/portfolio", getPortfolio);
