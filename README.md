@@ -1,2 +1,11 @@
 # arcana-techsoc-server
-This is the client side of the 24hr hackathon conducted by TechSoc with Arcana
+
+## Getting Started
+
+`git clone https://github.com/SPARTACUS5329/arcana-techsoc-server.git`
+
+`cd <repo>`
+
+`yarn install`
+
+`yarn run dev`
