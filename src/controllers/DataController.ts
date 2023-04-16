@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import fs from "fs";
 import { Datapoint } from "../utils/types";
 import { Stock } from "../models/Stock";
+import { RSI, predict, sentient } from "../utils/constants";
 
 export const foo = async (req: Request, res: Response) => {
 	res.status(200).send("Working dumbass");
@@ -73,6 +74,30 @@ export const getPortfolio = async (req: Request, res: Response) => {
 		return res.status(200).send(await Stock.find({}));
 	} catch (error: any) {
 		console.error(error);
+		return res.status(500).send(error.message);
+	}
+};
+
+export const getRSI = async (req: Request, res: Response) => {
+	try {
+		return res.status(200).send(RSI);
+	} catch (error: any) {
+		return res.status(500).send(error.message);
+	}
+};
+
+export const getSentient = async (req: Request, res: Response) => {
+	try {
+		return res.status(200).send(sentient);
+	} catch (error: any) {
+		return res.status(500).send(error.message);
+	}
+};
+
+export const getPrediction = async (req: Request, res: Response) => {
+	try {
+		return res.status(200).send(predict);
+	} catch (error: any) {
 		return res.status(500).send(error.message);
 	}
 };
